@@ -26,6 +26,7 @@ public class BlockChainManager : MonoBehaviour
         sdk = ThirdwebManager.Instance.SDK;
     }
 
+    //Hay una referencia a esta función en Prefab_ConnectWallet, en la parte de OnConnected()
     public void OnConnected()
     {
         GetTokenBalance();
@@ -42,19 +43,18 @@ public class BlockChainManager : MonoBehaviour
         balanceText.text = "Balance: " + data.displayValue;
     }
 
-    public async void ClaimTokens()
+    public /*async*/ void ClaimTokens()
     {
         if (reviewInput.text.Length > 5)
         {
             /*Contract contract = sdk.GetContract(tokenContract);
 
             var data = await contract.ERC20.Claim("10");
-            Debug.Log("Claimed");
 
-            GetTokenBalance(); */
+            GetTokenBalance();*/
 
             print("10 Tokens Recibidos!");
-            Debug.Log("Ahora mismo la transacción no es real");
+            Debug.Log("Para que la transacción sea real, hay que descomentar la parte de código necesaria en BlockChainManager");
             balanceManager.RaiseBalance(10);
 
             reviewInput.text = null;
